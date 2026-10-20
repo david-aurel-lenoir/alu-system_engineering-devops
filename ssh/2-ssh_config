@@ -1,0 +1,4 @@
+# SSH client configuration: use ~/.ssh/school and never use a password
+Host *
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
