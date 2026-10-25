@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Installs and configures nginx to serve a page containing "Holberton School"
+# Installs nginx and serves "Holberton School" at the root
+
 apt-get update -y
 apt-get install -y nginx
 
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Holberton School for the win!" > /var/www/html/index.html
 
-service nginx start
+service nginx restart
