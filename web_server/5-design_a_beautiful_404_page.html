@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>404 - Ceci n'est pas une page</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #1A2547;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    text-align: center;
-  }
-  h1 { font-size: 6rem; margin: 0; color: #D4A017; }
-  p { font-size: 1.5rem; }
-  a { color: #D4A017; text-decoration: none; border-bottom: 1px solid #D4A017; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — Page off course</title>
+  <style>
+    :root { --paper: #f4f7f4; --ink: #183e32; --signal: #db4747; --line: #9cb8ac; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: var(--paper); color: var(--ink); font-family: Georgia, serif; }
+    main { width: min(100%, 720px); padding: 40px 24px; text-align: center; }
+    svg { width: min(100%, 420px); height: auto; }
+    h1 { font-size: 36px; margin: 16px 0; }
+    p { font: 18px/1.6 Arial, sans-serif; }
+    a { display: inline-block; color: var(--ink); margin-top: 20px;
+      font: bold 16px Arial, sans-serif; text-underline-offset: 6px; }
+  </style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Ceci n'est pas une page</p>
-  <p><a href="/">Go back home</a></p>
+  <main>
+    <svg viewBox="0 0 420 250" role="img" aria-label="A paper boat drifting away from a 404 sign">
+      <path d="M20 205 Q65 190 110 205 T200 205 T290 205 T400 205 M20 225 Q65 210 110 225 T200 225 T290 225 T400 225"
+        fill="none" stroke="var(--line)" stroke-width="3"/>
+      <path d="M145 178 L275 178 L247 201 L169 201 Z" fill="var(--ink)"/>
+      <path d="M172 175 L215 111 L215 175 Z" fill="var(--signal)"/>
+      <path d="M218 119 L249 175 L218 175 Z" fill="var(--line)"/>
+      <path d="M72 75 L72 190" stroke="var(--ink)" stroke-width="5"/>
+      <path d="M35 35 H124 L145 65 L124 95 H35 Z" fill="var(--ink)"/>
+      <text x="60" y="75" fill="var(--paper)" font-family="Arial, sans-serif" font-size="30">404</text>
+    </svg>
+    <h1>This page drifted off course.</h1>
+    <p>Ceci n'est pas une page</p>
+    <p>The address you followed doesn't lead to a page here.</p>
+    <a href="/">Back to shore &rarr;</a>
+  </main>
 </body>
 </html>
