@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configures Nginx with a custom X-Served-By response header
+# shellcheck disable=SC2154
+sudo apt-get update -y
+sudo apt-get install -y nginx
+sudo tee /etc/nginx/conf.d/custom_header.conf > /dev/null <<'EOF'
+add_header X-Served-By $hostname;
+EOF
+sudo nginx -t
+sudo service nginx restart
