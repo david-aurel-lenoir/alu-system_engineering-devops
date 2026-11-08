@@ -4,5 +4,24 @@ sudo apt-get update -y
 sudo apt-get install -y nginx
 echo "Holberton School" | sudo tee /var/www/html/index.html > /dev/null
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
-sudo sed -i '/server_name _;/a location /redirect_me {\n\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}' /etc/nginx/sites-available/default
-sudo sed -i '/server_name _;/a error_page 404 /404.html;\n location = /404.html {\n\tinternal;\n}' /etc/nginx/sites-available/default
+sudo tee /etc/nginx/sites-available/default > /dev/null <<'EOF'
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html;
+	server_name _;
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+	error_page 404 /404.html;
+	location = /404.html {
+		internal;
+	}
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+EOF
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
